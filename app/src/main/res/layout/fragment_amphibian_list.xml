@@ -30,6 +30,9 @@
         android:layout_height="match_parent">
 
         <!-- TODO: set the listData binding to the list of Amphibians from the view model -->
+        <!-- In the fragment_amphibian_list.xml, the <data> tags for the data binding variables have
+         already been added to the layout files. You just need to implement the TODOs for the UI to
+         update based on the view model.  -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
@@ -38,9 +41,11 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:listitem="@layout/list_view_item" />
+            tools:listitem="@layout/list_view_item"
+            app:listData="@{viewModel.amphibians}"/>
 
         <!-- TODO: set the apiStatus binding to the status from the view model -->
+        <!-- Set the appropriate bindings for the listData and apiStatus. -->
         <ImageView
             android:id="@+id/status_image"
             android:layout_width="wrap_content"
@@ -48,7 +53,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:apiStatus="@{viewModel.status}"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
