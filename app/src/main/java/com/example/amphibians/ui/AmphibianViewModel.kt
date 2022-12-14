@@ -59,7 +59,9 @@ class AmphibianViewModel : ViewModel() {
     // AmphibianApiStatus.LOADING . A successful request should set _amphibians to the list of
     // amphibians from the server and set the _status to AmphibianApiStatus.DONE. In the event of an
     // error, _amphibians should be set to an empty list and the _status set to AmphibianApiStatus.ERROR.
-    private fun getAmphibianList(){
+
+    // I had made getAmphibianList() private originally, this didn't let the listFragment tell the viewModel to make the function call
+    fun getAmphibianList(){
         viewModelScope.launch{
             _status.value = AmphibianApiStatus.LOADING
             try{

@@ -36,6 +36,9 @@ class AmphibianListFragment : Fragment() {
     ): View? {
         val binding = FragmentAmphibianListBinding.inflate(inflater)
         // TODO: call the view model method that calls the amphibians api
+        // The ViewModel is already referenced in AmphibianListFragment. In the onCreateView() method,
+        // after the layout is inflated, simply call the getAmphibianList() method from the ViewModel.
+        viewModel.getAmphibianList()
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
         binding.recyclerView.adapter = AmphibianListAdapter(AmphibianListener { amphibian ->
